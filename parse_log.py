@@ -6,10 +6,33 @@ import re
 class Line:
 
     not_content = "^\d\d:\d\d -!-"
+    
+    #            timestamp      username     text
+    line_re = "^(\d\d:\d\d)\s*<([\s@]\w+)>\s*(.*)"
+    fallback_re = "^(\d\d:\d\d)\s*(.*)"
 
     def __init__(self, text):
         self.text = text.strip()
         self.is_content = re.match(self.not_content, self.text) is None
+
+        ma = re.match(self.line_re, self.text)
+        if ma is not None:
+            self.timestamp = ma.group(1)
+            self.username = ma.group(2)
+            self.text = ma.group(3)
+            return
+
+        ma = re.match(self.fallback_re, self.text)
+        if ma is not None:
+            self.timestamp = ma.group(1)
+            self.username = ""
+            self.text = ma.group(2)
+            return
+
+        self.timestamp = ""
+        self.username = ""
+
+
 
 
 def render(lines, out_fn, content_only):

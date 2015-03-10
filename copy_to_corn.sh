@@ -13,4 +13,4 @@ cd "$(dirname "$0")"
 source authenticate.sh
 
 # Copy
-scp log.html log.content.html about.html corn:~/WWW/fah/ >> scp.log
+scp log.css log.html log.content.html about.html corn:~/WWW/fah/ >> scp.log
