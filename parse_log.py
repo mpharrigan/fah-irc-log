@@ -7,8 +7,10 @@ class Line:
 
     not_content = "^\d\d:\d\d -!-"
     
-    #            timestamp      username     text
-    line_re = "^(\d\d:\d\d)\s*<([\s@]\w+)>\s*(.*)"
+    #            timestamp      username         text
+    line_re = "^(\d\d:\d\d)\s*<([\s@][\w\-]+)>\s*(.*)"
+
+    #                timestamp    text
     fallback_re = "^(\d\d:\d\d)\s*(.*)"
 
     def __init__(self, text):
