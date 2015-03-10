@@ -48,7 +48,7 @@ def render(lines, out_fn, content_only):
 def parse(fn):
     with open(fn) as file:
         lines = [Line(line) for line in file]
-    return lines
+    return list(reversed(lines))
 
 def main():
     lines = parse('Freenode/#fah.log')
