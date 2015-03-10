@@ -10,6 +10,7 @@
     <title>FAH Log</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="log.css">
   </head>
 
   <body>
@@ -27,11 +28,13 @@
 
         <div class="row">
             <div class="col-xs-12">
-                {% for line in lines %}
-                {% if (not content_only) or line.is_content %}
-                <p>{{line.text}}</p>
-                {% endif %}
-                {% endfor %}
+                <table class="table table-condensed table-striped table-hover">
+                    {% for line in lines -%}
+                    {% if (not content_only) or line.is_content -%}
+                    <tr><td class="timestamp">{{line.timestamp}}</td><td class="username">{{line.username}}</td><td class="linetext">{{line.text}}</td></tr>
+                    {% endif -%}
+                    {% endfor -%}
+                </table>
             </div>
         </div>
 
