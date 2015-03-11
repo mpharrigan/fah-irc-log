@@ -2,6 +2,7 @@
 
 from jinja2 import Environment, FileSystemLoader
 import re
+import time
 
 class Pages:
     def __init__(self):
@@ -27,6 +28,10 @@ class Page:
 
         with open("out/{}".format(self.out_fn), 'w') as file:
             file.write(log_template.render(pages=pages, page=self, lines=lines))
+
+    @property
+    def time(self):
+        return time.strftime("%Y-%m-%d %I:%M %p %Z")
 
 class LogPage(Page):
     template_fn = 'log.html'
