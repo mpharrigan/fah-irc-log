@@ -14,4 +14,4 @@ python parse_log.py
 source authenticate.sh
 
 # Copy
-scp log.css log.html log.content.html about.html corn:~/WWW/fah/ >> scp.log
+scp log.css out/* corn:~/WWW/fah/ >> scp.log
