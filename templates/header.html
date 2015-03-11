@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{page.description}}">
+    <meta name="author" content="Matthew Harrigan">
+
+    <title>{{page.title}}</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="log.css">
+  </head>
+
+  <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <ul class="nav nav-pills">
+                    {% for p in pages -%}
+                    <li role="presentation" class="{{p.active}}">
+                    <a href="{{p.out_fn}}">{{p.title}}</a></li>
+                    {% endfor -%}
+                </ul>
+            </div>
+        </div>

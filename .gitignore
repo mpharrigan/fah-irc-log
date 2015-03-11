@@ -1,6 +1,4 @@
 Freenode/
-log.html
-log.content.html
+out/
 scp.log
-
 authenticate.sh

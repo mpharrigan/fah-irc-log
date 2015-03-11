@@ -1,0 +1,22 @@
+{% include 'header.html' %}
+
+<div class="row">
+    <div class="col-xs-8">
+        <h1>{{page.title}}</h1>
+        
+        <p> These pages provide a log of the #fah irc channel, which is
+        used for testing new Folding@Home projects. </p>
+
+        <p> Logs are generated with irssi. A cron job checks every hour if
+        the irssi process has died and tries to restart it. A cron job uses
+        a small python script to render the log files into html and copy
+        the results to a webserver every 15 minutes. </p>
+
+        <p> The code for this can be found <a
+            href="https://github.com/mpharrigan/fah-irc-log">on Github</a>.
+        Pull requests are welcome to improve the html rendering.  </p>
+
+    </div>
+</div>
+
+{% include 'footer.html' %}
